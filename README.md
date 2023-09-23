@@ -11,9 +11,9 @@ In a Dockerized environment, ensuring the security and integrity of your Postgre
 Crontab is a Unix-based utility that allows users to schedule tasks to run automatically at specific intervals. By utilizing cron job scheduling, administrators can automate repetitive tasks, such as database backups, with ease.
 
 #### Prerequisites
-- Install Docker: `https://devopssec.fr/article/cours-complet-apprendre-technologie-docker` 
-- Run Postgres Image on Docker: `https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/` 
-- Basic knowledge of Cron: `https://phoenixnap.com/kb/set-up-cron-job-linux`
+- [Basic knowledge on Docker](https://devopssec.fr/article/cours-complet-apprendre-technologie-docker) 
+- [Run Postgres Image on Docker](https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image)
+- [Basic knowledge of Cron](https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image)
 
 #### Step 1: Verify PostgreSQL database running on Docker
 Before proceeding, make sure you have Docker installed on your system and PostgreSQL containers is running.
@@ -54,11 +54,13 @@ This entry tells cron to execute the backup script every day at midnight (00:00)
 Save the crontab file and exit the editor. The cron job is now scheduled to run automatically.
 
 #### Bonus: 
-To restore a particular backup you can run the following command : 
+- To restore a particular backup you can run the following command : 
 
 ```shell
 cat your_backup.sql | docker exec -i your-db-container psql -U your_postgres_username -d your_postgres_database
 ````
+
+- To provide more security for your cron job, create `cron.allow` file in `/etc` directory and put there only users authorised to run job. Follow this [link](https://docs.oracle.com/cd/E19253-01/817-0403/sysrescron-23/index.html) to get more details.
 
 ## Conclusion:
 
