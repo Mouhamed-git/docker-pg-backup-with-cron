@@ -53,6 +53,14 @@ This entry tells cron to execute the backup script every day at midnight (00:00)
 
 Save the crontab file and exit the editor. The cron job is now scheduled to run automatically.
 
+- To Check the cron job list you can use the following command:
+
+```shell
+crontab -l
+```
+
+![My Image](cron-list.jpg)
+
 #### Bonus: 
 - To restore a particular backup you can run the following command : 
 
